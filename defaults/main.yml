@@ -1,5 +1,18 @@
 ---
-# defaults file for spacewalk-client
+
+#
+# you have to override :
+#
+
+spw_server: spacewalk-server.fqdn
+
+#
+# you could override :
+#
+spw_activation_key: "1-rhel{{ ansible_lsb.major_release }}"
+
+spw_cacert: "/etc/ssl/certs/ca-bundle.crt"
+
 spw_packages:
     - rhn-client-tools
     - rhn-check
@@ -7,11 +20,19 @@ spw_packages:
     - rhnsd
     - m2crypto
     - yum-rhn-plugin
+
 spw_cert_rpm: rhn-org-trusted-ssl-cert-1.0-1.noarch.rpm
-spw_cert_uri: http://{{ spw_server }}/pub/{{ spw_cert_rpm }}
+
+spw_cert_uri: "http://{{ spw_server }}/pub/{{ spw_cert_rpm }}"
+
 spw_cert_file: /usr/share/rhn/RHN-ORG-TRUSTED-SSL-CERT
+
 spw_checkin_interval: 240
-spw_uri: https://{{ spw_server }}/XMLRPC
+
+spw_uri: "https://{{ spw_server }}/XMLRPC"
+
 spw_permissions_dir: /etc/sysconfig/rhn/allowed-actions
+
 spw_allow_script: true
+
 spw_allow_configfiles: true
