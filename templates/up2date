@@ -39,7 +39,7 @@ versionOverride[comment]=Override the automatically determined system version
 versionOverride=
 
 sslCACert[comment]=The CA cert used to verify the ssl server
-sslCACert={{ spw_cert_file }}
+sslCACert={{ spw_cacert }}
 
 retrieveOnly[comment]=Retrieve packages only
 retrieveOnly=0
